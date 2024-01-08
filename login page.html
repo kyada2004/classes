@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+     /* body {
+            background-color: orangered
+        } */
+
+        .input-field {
+            font-size: 15px;
+            background: rgba(7, 0, 0, 0.952);
+            color: #0056b3;
+            height: 50px;
+            width: 100%;
+            padding: 0 10px 0 45px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            transition: .2s ease;
+        }
+
+        
+        input-field:hover,
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        ::-webkit-input-placeholder {
+            color: aqua;
+        }
+
+        .input-box i {
+            position: relative;
+            top: -35px;
+            left: 17px;
+            color: #06111d;
+        }
+
+        .input-box1 {
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .input-box1 img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .submit {
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+            height: 45px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+
+        .submit:hover {
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-border {
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #e7eef7;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #06111d;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-primary:active {
+            background-color: #004085;
+            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="input-box1 d-flex align-items-center justify-content-between">
+        <a href="index.html" class="btn btn-primary">
+            <i class="fa fa-home"></i>
+        </a>
+        <img src="images/vision.png" alt="Your Logo" style="width: 100px; height:100px;">
+        <div>
+           <a href="registaion.html"> <button type="button" class="btn btn-primary">Register</button></a>
+            <a href="reset password.html"><button type="button" class="btn btn-secondary">forget password</button></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center"> Login </h2>
+        <form class="form-border">
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="username">Username:</label>
+                    <input type="text" class="input-field" id="username" placeholder="Enter username" name="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="input-field" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <p>Don't have an account? <a href="registaion.html">Register</a></p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <a href="reset password.html">Forget password</a>
+                </div>
+            </div>
+        </form>
+        <form class="form-signin">
+            <!-- Add a sign-in button -->
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <!-- The rest of the form -->
+        </form>
+
+        <script>
+            function onSignIn(googleUser) {
+                var id_token = googleUser.getAuthResponse().id_token;
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'your-backend-url-here');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function () {
+                    console.log('Signed in as: ' + xhr.responseText);
+                };
+                xhr.send('idtoken=' + id_token);
+            }
+        </script>
+
+        <!-- Include the Google API JavaScript library -->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </div>
+</body>
+
+</html>

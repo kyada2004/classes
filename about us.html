@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vision About me</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: orange;
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            width: 100px;
+        }
+
+        .home-page {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .right-side-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .navbar .all-links {
+                position: fixed;
+                left: -100%;
+                width: 300px;
+                display: fixed;
+                height: 100vh;
+                top: 75px;
+                background: #333;
+                transition: left 0.3s ease;
+            }
+
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .right-image {
+            margin-left: auto;
+        }
+
+        .left-text {
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+        .education,
+        footer {
+            font-family: "poppins", sans-serif;
+        }
+
+        .education .serv-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .education,
+        .projects {
+            color: #fff;
+            background: #111;
+        }
+
+        .education .title::before,
+        .projects .title::before {
+            background: #fff;
+
+        }
+
+        .education .title::after,
+        .projects .title::after {
+            background: #302f2f;
+            content: "";
+
+        }
+
+        .education .serv-content .card {
+            width: calc(33% - 20px);
+            background: #bbb3b3;
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .education .serv-content .card:hover {
+            background: #1e3551;
+        }
+
+        .education .serv-content .card .box {
+            transition: all 0.3s ease;
+        }
+
+        .education .serv-content .card:hover .box {
+            transform: scale(1.05);
+        }
+
+        .education .serv-content .card i {
+            font-size: 50px;
+            color: #0acfae;
+            background: linear-gradient(135deg, #041d3d, #fff, crimson);
+            -webkit-text-fill-color: transparent;
+            transition: color 0.3s ease;
+        }
+
+        .education .serv-content .card:hover i {
+            color: #dd0f0f;
+        }
+
+        .education .serv-content .card .text {
+            font-size: 25px;
+            font-weight: 500;
+            margin: 10px 0 7px 0;
+            color: #000;
+        }
+
+        @media(max-width : 947px) {
+            .education .serv-content .card {
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+        }
+
+        @media(max-width: 900px) {
+            .education .serv-content .card {
+                width: 100%
+            }
+        }
+
+        .img-responsive {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="images\vision.png" alt="" class="navbar-brand">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about  us.html">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="service.html">Services</a>
+                    <div class="dropdown-content">
+                        <a href="tarining page.html">Training</a>
+                        <a href="page details/machin operter.html">CNC/VMC Machine operator</a>
+                        <a href="page details/job and developer.html">CNC/VMC job and Developer</a>
+                        <a href="page details/Design and Development.html">Desing and development</a>
+                        <a href="page details/Technical Staff.html">Technical staff</a>
+                        <a href="page details/office_Admin.html">Office & Admin Staff</a>
+                        <a href="page details/House keeping staff.html">House Keeping Staff</a>
+                     </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="plasment.html">Placement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <div class="row ">
+            <div class="col-md-6" style=" padding-top: 150px;">
+                <h1>Welcome to Vision <br> About me </h1>
+            </div>
+            <div class="col-md-6">
+                <img src="images/Vector-Smart-Object-16.png" alt="Home Image" class="img-fluid"
+                    style="max-width: 100%; height: 100%; ">
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <div class="col-md-6">
+            <img src="images\Vector-Smart-Object-16.png" alt="home image " class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <p> about me for details
+                all details in class
+                text add for a bout us
+            </p>
+        </div>
+    </div>
+
+    <section class="education" id="Education">
+        <div class="max-width">
+            <h2 class="title text-center">location</h2>
+            <div class="serv-content">
+                <div class="card">
+                    <div class="box">
+                        <div class="text">Head Office</div>
+                        <p>F-05,4th Floor,Raspan Arcade, opp,Vaikunth Bunglows,New india Colony,nikol,Ahmedabad.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="text"> Center 1</div>
+                        <p>Office no.117 , shreenath complex, opp Butbhavani Temple, Mahemdabad, nenpur Chokdi,Kheda.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+
+                        <div class="text">Center 2</div>
+                        <p>61,GF,Shreeji Business World, Aroma Cricle,Ahmedabad Palanpur Highway, Near Under
+                            Pass,Palanpur-385001. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p><a href="index.html">Home</a> | <a href="about us.html">About </a>|<a href="#services"> Service </a>| <a
+                href="plasment.html">Placement </a>| <a href="#contact.">Contact</a> | <a
+                href="tarining page.html">Training</a></p>
+
+        <p>© 2022 VISION. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

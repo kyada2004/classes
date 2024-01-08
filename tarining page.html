@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vision training & Placement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        body {
+            background-color: orange;
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            width: 100px;
+            padding: 30px;
+        }
+
+
+        .home-page {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .right-side-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 80px 0 0;
+        }
+
+        section h2 {
+            font-size: 2rem;
+        }
+
+        section>p {
+            text-align: center;
+        }
+
+        section .cards {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin-top: 50px;
+            padding: 0 10px;
+            justify-content: space-between;
+        }
+
+        section.about {
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+
+
+        section .cards .card {
+            position: relative;
+            background: #fff;
+            padding: 40px 15px;
+            list-style: none;
+            border-radius: 5px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+            margin-bottom: 40px;
+            width: calc(100% / 3 - 30px);
+            text-align: center;
+            transition: all 2s linear 1s;
+            animation: ball 3s linear 0.1s infinite alternate;
+        }
+
+        @keyframes ball {
+            form {
+                .card img {
+                    top: 0;
+                }
+            }
+
+            to {
+                top: 23px;
+            }
+
+        }
+
+        .card img:hover {
+            box-shadow: 20px 20px 50px rgb(100, 100, 100);
+
+
+        }
+
+        .cards .card p {
+            padding: 0 15px;
+            margin-top: 5px;
+        }
+
+
+        @media screen and (max-width: 860px) {
+            .navbar .all-links {
+                position: fixed;
+                left: -100%;
+                width: 300px;
+                display: block;
+                height: 100vh;
+                top: 75px;
+                background: #333;
+                transition: left 0.3s ease;
+            }
+
+        }
+
+        @media screen and (max-width: 560px) {
+            section .cards .card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        .btn2 {
+            position: relative;
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid #fefefe;
+            text-transform: uppercase;
+            color: #fefefe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .btn2::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - -2px);
+            background-color: #212121;
+            transition: 0.3s ease-out;
+            transform: scaleY(1);
+        }
+
+        .btn2::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - 50px);
+            background-color: #212121;
+            transition: 0.3s ease-out;
+            transform: scaleY(1);
+        }
+
+        .btn2:hover::before {
+            transform: translateY(-25px);
+            height: 0;
+        }
+
+        .btn2:hover::after {
+            transform: scaleX(0);
+            transition-delay: 0.15s;
+        }
+
+        .btn2:hover {
+            border: 2px solid #fefefe;
+        }
+
+        .btn2 span {
+            position: relative;
+            z-index: 3;
+        }
+
+        button {
+            text-decoration: none;
+            border: none;
+            background-color: transparent;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+        .education,
+        footer {
+            font-family: "poppins", sans-serif;
+        }
+
+        .education .serv-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .education,
+        .projects {
+            color: #fff;
+            background: #111;
+        }
+
+        .education .title::before,
+        .projects .title::before {
+            background: #fff;
+
+        }
+
+        .education .title::after,
+        .projects .title::after {
+            background: #302f2f;
+            content: "";
+
+        }
+
+        .education .serv-content .card {
+            width: calc(33% - 20px);
+            background: #bbb3b3;
+            text-align: center;
+            border-radius: 10px;
+            padding: 50px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .education .serv-content .card:hover {
+            background: #1e3551;
+        }
+
+        .education .serv-content .card .box {
+            transition: all 0.3s ease;
+        }
+
+        .education .serv-content .card:hover .box {
+            transform: scale(1.05);
+        }
+
+        .education .serv-content .card i {
+            font-size: 50px;
+            color: #0acfae;
+            background: linear-gradient(135deg, #041d3d, #fff, crimson);
+            -webkit-text-fill-color: transparent;
+            transition: color 0.3s ease;
+        }
+
+        .education .serv-content .card:hover i {
+            color: #dd0f0f;
+        }
+
+        .education .serv-content .card .text {
+            font-size: 25px;
+            font-weight: 500;
+            margin: 10px 0 7px 0;
+            color: #000;
+        }
+
+        @media(max-width : 947px) {
+            .education .serv-content .card {
+                width: calc(50% - 10px);
+                margin-bottom: 20px;
+            }
+        }
+
+        @media(max-width: 900px) {
+            .education .serv-content .card {
+                width: 100%
+            }
+        }
+
+        .img-responsive {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="images\vision.png" alt="" class="navbar-brand" style="width: 150px; height: 100px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about us.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a href="service.html">Services</a>
+                        <div class="dropdown-content">
+                            <a href="tarining page.html">Training</a>
+                            <a href="page details/machin operter.html">CNC/VMC Machine operator</a>
+                            <a href="page details/job and developer.html">CNC/VMC job and Developer</a>
+                            <a href="page details/Design and Development.html">Desing and development</a>
+                            <a href="page details/Technical Staff.html">Technical staff</a>
+                            <a href="page details/office_Admin.html">Office & Admin Staff</a>
+                            <a href="page details/House keeping staff.html">House Keeping Staff</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="plasment.html">Placement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="padding: 100px;">
+                <h1>Welcome to Vision Training & Placement</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec dui enim. Vestibulum ante ipsum
+                    primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet
+                    aliquam vel, ullamcorper sit amet ligula.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="images/Vector-Smart-Object-16.png" alt="Home Image" class="img-fluid"
+                    style="max-width: 100%; height: 100%; ">
+            </div>
+        </div>
+    </div>
+    <section class="services" id="services">
+        <h2 align="center">Our Services</h2>
+        <!-- <p>All Types Of Man Power Supplier</p> -->
+        <ul class="cards">
+            <li class="card">
+                <!-- <img src="images/service1.jpg" alt="img"> -->
+                <h3>CNC/VMC Machine Operator & Programmer</h3>
+                <p>Experience comfort and protection with our high-quality camping tents.</p>
+                <button>
+                    <a href="page details/machin operter.html" class="btn2"><span class="spn2">Read me</span></a>
+                </button>
+            </li>
+            <li class="card">
+                <!-- <img src="images/servie2.jpg" alt="img"> -->
+                <h3>CNC/VMC Job works & Development</h3>
+                <p>Stay cozy and warm during your camping trips with our premium sleeping bags.</p>
+                <button>
+                    <a href="page details/job and developer.html" class="btn2"><span class="spn2">Read me</span></a>
+                </button>
+            </li>
+            <li class="card">
+                <!-- <img src="images/ser3.jpg" alt="img"> -->
+                <h3>Desing & Development Work</h3>
+                <p>Cook delicious meals in the great outdoors with our reliable camp stoves.</p>
+                <button>
+                    <a href="page details/Design and Development.html" class="btn2"><span class="spn2">Read
+                            me</span></a>
+                </button>
+            </li>
+            <li class="card">
+                <!-- <img src="images/servic4.jpg" alt="img"> -->
+                <h3>Technical Staff</h3>
+                <p>Carry your essentials comfortably with our durable and functional camping backpacks.</p>
+                <button>
+                    <a href="page details/Technical Staff.html" class="btn2"><span class="spn2">Read me</span></a>
+                </button>
+            </li>
+            <li class="card">
+                <!-- <img src="images/chair.jpg" alt="img"> -->
+                <h3>Office & Admin Staff</h3>
+                <p>Relax and unwind in style with our comfortable and portable camping chairs.</p>
+                <button>
+                    <a href="page details/office & Admin .html" class="btn2"><span class="spn2">Read me</span></a>
+                </button>
+            </li>
+            <li class="card">
+                <!-- <img src="images/light.jpg" alt="img"> -->
+                <h3>House Keeping Staff</h3>
+                <p>Illuminate your campsite with our reliable and energy-efficient camping lights.</p>
+                <button>
+                    <a href="page details/House keeping staff.html" class="btn2"><span class="spn2">Read me</span></a>
+                </button>
+            </li>
+        </ul>
+    </section>
+    <section class="education" id="Education">
+        <div class="max-width">
+            <h2 class="title " align="center">location</h2>
+            <div class="serv-content  d-flex align-items-center justify-content-between">
+                <div class="card">
+                    <div class="box">
+                        <div class="text">Head Office</div>
+                        <p>F-05,4th Floor,Raspan Arcade, opp,Vaikunth Bunglows,New india Colony,nikol<br>,Ahmedabad.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <div class="text">Center 1</div>
+                        <p>Office no.117 , shreenath complex, opp Butbhavani Temple, Mahemdabad, nenpur Chokdi,Kheda.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+
+                        <div class="text">Center 2</div>
+                        <p>61,GF,Shreeji Business World, Aroma Cricle,Ahmedabad Palanpur Highway, Near Under Pass,
+                            Palanpur-385001. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center">
+        <h3>our client </h3>
+        <img src="images/mian home page .jpg" class="img-responsive mx-auto d-block">
+    </div>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <!-- <p>Reach out to us for any inquiries or feedback.</p> -->
+        <div class="row">
+            <div class="col information">
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i>visionboss8010@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 94288 25832</p>
+                    <p><i class="fas fa-phone"></i> +91 96649 66293</p>
+                    <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+
+                </div>
+            </div>
+            <div class="col form">
+                <form>
+                    <input type="text" placeholder="Name*" required> <br><br>
+                    <input type="email" placeholder="Email*" required><br>
+                    <br>
+                    <textarea placeholder="Message*" required></textarea>
+                    <button>
+                        <a href="page details/Design and Development.html" class="btn2"><span class="spn2">Read
+                                me</span></a>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p><a href="index.html">Home</a> | <a href="about us.html">About </a>|<a href="service.html"> Service </a>|
+            <a href="plasment.html">Placement </a>| <a href="#contact.">Contact</a> | <a
+                href="tarining page.html">Training</a>
+        </p>
+
+        <p>© 2022 VISION. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

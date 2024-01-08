@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        /*body {
+            background-color: orangered
+        }*/
+
+        .input-field {
+            font-size: 15px;
+            background: rgba(7, 0, 0, 0.952);
+            color: #0056b3;
+            height: 50px;
+            width: 100%;
+            padding: 0 10px 0 45px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            transition: .2s ease;
+        }
+
+        input-field:hover,
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        ::-webkit-input-placeholder {
+            color: aqua;
+        }
+
+        .input-box i {
+            position: relative;
+            top: -35px;
+            left: 17px;
+            color: #06111d;
+        }
+
+        .input-box1 {
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .input-box1 img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .submit {
+            font-size: 15px;
+            font-weight: 500;
+            color: black;
+            height: 45px;
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+
+        .submit:hover {
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-border {
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #e7eef7;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #007BFF;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-primary:active {
+            background-color: #004085;
+            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="input-box1 d-flex align-items-center justify-content-between">
+        <a href="index.html" class="btn btn-primary">
+            <i class="fa fa-home"></i>
+        </a>
+        <img src="images/vision.png" alt="Your Logo"  style="width: 100px;">
+       
+    </div>
+    <div class="container">
+        <h2 class="text-center">Registration Form</h2>
+        <form class="form-border">
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="email">Email:</label>
+                    <input type="email" class="input-field" id="email" placeholder="Enter email" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="input-field" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-box">
+                    <label for="pwd">Confirm Password:</label>
+                    <input type="password" class="input-field" id="confirm_pwd" placeholder="Confirm password"
+                        name="confirm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="upload file">c.v. upload:</label>
+                <input type="file" class="form-control" id="file" placeholder="file upload" name="file"
+                    maxlength=" 2 MB upload file ">
+            </div>
+            <div class="input-box">
+                <button type="submit" class="input-field">Register</button>
+            </div>
+        </form>
+
+        <p class="text-center">Already have an account? <a href="login page.html">Login</a></p>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-storage.js"></script>
+
+    <script>
+        document.getElementById('file').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            var storageRef = firebase.storage().ref('cvs/' + file.name);
+            var task = storageRef.put(file);
+
+            task.on('state_changed', function (snapshot) {
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+            }, function (error) {
+                console.log('Upload error:', error);
+            }, function () {
+                console.log('Upload is complete');
+                task.snapshot.ref.getDownloadURL().then(function (url) {
+                    console.log('File available at:', url);
+                    // Store the URL in your database
+                });
+            });
+        });
+        var firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <?php
+    $file = "xml_file.xml"; // Name of the xml file
+
+    if(!file_exists($file)){
+        echo "The file does not exist";
+    }else{
+        $xml = simplexml_load_file($file);
+
+        // Send email using data from XML
+        $to = $xml->email->to;
+        $subject = $xml->email->subject;
+        $message = $xml->email->message;
+        $headers = "From: " . $xml->email->from . "\r\n";
+        $headers .= "Reply-To: " . $xml->email->replyto . "\r\n";
+        $headers .= "CC: " . $xml->email->cc . "\r\n";
+        $headers .= "BCC: " . $xml->email->bcc . "\r\n";
+
+        if(mail($to, $subject, $message, $headers)){
+            echo "Email sent successfully";
+        }else{
+            echo "Failed to send email";
+        }
+    }
+?>
+</body>
+
+</html>
